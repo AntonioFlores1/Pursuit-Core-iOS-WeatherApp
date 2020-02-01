@@ -92,8 +92,15 @@ class DailyForcastViewController: UIViewController {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController,let indexpath = CollectionTableView.indexPathsForSelectedItems?.first else {
+            return
+        }
+        
+        detailVC.detailInfo = dailyWeather[indexpath.row]
+    }
 }
+
 
 
 //MARK: - CVFlow

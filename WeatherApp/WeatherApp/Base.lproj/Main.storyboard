@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="131.33433283358323"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Kec-eg-mCW">
             <objects>
-                <viewController id="X8z-RD-2EN" sceneMemberID="viewController">
+                <viewController id="X8z-RD-2EN" customClass="DetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NMb-vr-qD6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,6 +271,12 @@
                         <viewLayoutGuide key="safeArea" id="qNf-hW-AwO"/>
                     </view>
                     <navigationItem key="navigationItem" id="inj-og-RqU"/>
+                    <connections>
+                        <outlet property="detailDesc" destination="Mb6-52-krt" id="PeK-Aq-ktV"/>
+                        <outlet property="detailImage" destination="67v-pr-Z3i" id="A6p-bC-HFh"/>
+                        <outlet property="detailSummary" destination="2Qx-Y8-1ua" id="rjq-31-Rl2"/>
+                        <outlet property="detialHeader" destination="cNx-LC-vQu" id="8IZ-iE-0op"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKO-7I-HY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

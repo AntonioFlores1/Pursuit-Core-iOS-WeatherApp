@@ -10,22 +10,29 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var detialHeader: UILabel!
+
+    @IBOutlet weak var detailImage: UIImageView!
+    
+    @IBOutlet weak var detailSummary: UILabel!
+
+    @IBOutlet weak var detailDesc: UILabel!
+    
+
+    var detailInfo: DataInfo?
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+           super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        detailImage.image = UIImage.init(named: (detailInfo?.icon)!)
+        detailSummary.text = detailInfo?.summary
+        detailDesc.text = """
+High: \(detailInfo!.temperatureHigh)
+Low: \(detailInfo!.temperatureLow)
+Humidity: \(detailInfo!.humidity)
+"""
+        
+       }
 
 }
