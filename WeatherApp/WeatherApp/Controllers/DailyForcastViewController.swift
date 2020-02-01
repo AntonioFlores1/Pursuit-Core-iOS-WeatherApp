@@ -36,6 +36,10 @@ class DailyForcastViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.currentImage.image = UIImage(named: (self.currentWeather.first?.currently.icon)!)
+                self.CurrentDes.text = self.currentWeather.first?.currently.summary
+                self.currentDetails.text = """
+                Current Temp: \(self.currentWeather.first!.currently.temperature) Humidity: \(self.currentWeather.first!.currently.humidity)
+                """
             }
         }
     }
@@ -95,7 +99,7 @@ class DailyForcastViewController: UIViewController {
 //MARK: - CVFlow
 extension DailyForcastViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 125, height: 175)
+        return CGSize.init(width: 240, height: 300)
     }
     
 }
@@ -114,8 +118,7 @@ extension DailyForcastViewController:UICollectionViewDataSource {
         collectionViewcell.DateLabel.text = "Today"
         collectionViewcell.forcastLabel.text = cellInfo.summary
         collectionViewcell.detailLabel.text = """
-High: \(cellInfo.temperatureHigh)
-Low: \(cellInfo.temperatureLow)
+High: \(cellInfo.temperatureHigh) Low: \(cellInfo.temperatureLow)
 Humidity: \(cellInfo.humidity)
 """
         return collectionViewcell
