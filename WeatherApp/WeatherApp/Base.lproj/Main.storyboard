@@ -98,6 +98,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="DateLabel" destination="Hb3-Kg-sK2" id="Wdo-lL-f08"/>
+                                                            <outlet property="detailLabel" destination="mTU-jY-Kj6" id="AGj-eI-Jct"/>
                                                             <outlet property="forcastImage" destination="2kA-88-u62" id="47O-8p-cz1"/>
                                                             <outlet property="forcastLabel" destination="kFJ-Ka-nkN" id="Irr-gO-avd"/>
                                                             <segue destination="X8z-RD-2EN" kind="show" id="LDS-um-ER1"/>
@@ -188,7 +189,7 @@
                                     <constraint firstItem="Roa-Q3-tHP" firstAttribute="leading" secondItem="YcC-6A-Zza" secondAttribute="leading" constant="0.10000000000000001" id="2fU-Zn-LDi"/>
                                     <constraint firstItem="Roa-Q3-tHP" firstAttribute="top" secondItem="YcC-6A-Zza" secondAttribute="top" constant="0.10000000000000001" id="CZ5-k0-WOK"/>
                                     <constraint firstItem="Roa-Q3-tHP" firstAttribute="width" secondItem="Dju-zP-IDq" secondAttribute="width" id="NUO-jX-4f7"/>
-                                    <constraint firstItem="Roa-Q3-tHP" firstAttribute="height" secondItem="Dju-zP-IDq" secondAttribute="height" id="T2l-IW-YkE"/>
+                                    <constraint firstItem="Roa-Q3-tHP" firstAttribute="height" secondItem="Dju-zP-IDq" secondAttribute="height" priority="250" id="T2l-IW-YkE"/>
                                     <constraint firstItem="Roa-Q3-tHP" firstAttribute="bottom" secondItem="YcC-6A-Zza" secondAttribute="bottom" constant="0.10000000000000001" id="e2Q-eM-g44"/>
                                     <constraint firstItem="Roa-Q3-tHP" firstAttribute="leading" secondItem="Dju-zP-IDq" secondAttribute="leading" id="hH2-5e-1bB"/>
                                     <constraint firstAttribute="bottom" secondItem="Roa-Q3-tHP" secondAttribute="bottom" id="jKj-1b-yhX"/>
@@ -214,6 +215,11 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="CollectionTableView" destination="Zc1-tU-fmO" id="vgR-FM-vU6"/>
+                        <outlet property="CurrentDes" destination="6mn-Yr-Zvz" id="zeN-je-Etd"/>
+                        <outlet property="currentDetails" destination="rBq-kW-o74" id="CnF-Rz-JIk"/>
+                        <outlet property="currentImage" destination="9pW-5f-5HR" id="Fdk-St-Nuj"/>
+                        <outlet property="currentSummary" destination="SNB-yr-IDc" id="ZRd-JT-9jt"/>
+                        <outlet property="textField" destination="72K-ig-C55" id="tYe-Ac-Xbz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

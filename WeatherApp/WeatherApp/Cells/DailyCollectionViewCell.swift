@@ -14,4 +14,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var forcastImage: UIImageView!
     
     @IBOutlet weak var forcastLabel: UILabel!
+    
+    @IBOutlet weak var detailLabel: UILabel!
+    
 }
