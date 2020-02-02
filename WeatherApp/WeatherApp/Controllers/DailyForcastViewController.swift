@@ -10,6 +10,8 @@ import UIKit
 
 class DailyForcastViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var currentSummary: UILabel!
@@ -22,6 +24,7 @@ class DailyForcastViewController: UIViewController {
     
     @IBOutlet weak var CollectionTableView: UICollectionView!
     
+    @IBOutlet weak var currentView: UIView!
     
     //MARK: - didSet
     private var dailyWeather = [DataInfo](){
@@ -48,6 +51,7 @@ class DailyForcastViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentView.layer.cornerRadius = 20
         textField.delegate = self
         CollectionTableView.dataSource = self
         CollectionTableView.delegate = self
@@ -92,6 +96,7 @@ class DailyForcastViewController: UIViewController {
         }
     }
     
+    //MARK: - Prepare For Segueb
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailVC = segue.destination as? DetailViewController,let indexpath = CollectionTableView.indexPathsForSelectedItems?.first else {
             return
@@ -139,6 +144,13 @@ Humidity: \(cellInfo.humidity)
 //MARK: - TextField
 
 extension DailyForcastViewController:UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.scrollView.contentOffset.y = 400
+        }, completion: nil)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let textfield = textField.text else {
             return false
@@ -146,7 +158,9 @@ extension DailyForcastViewController:UITextFieldDelegate {
         
         currentWeather(zipCode: textfield)
         dailyWeather(zipCode: textfield)
+        scrollView.contentOffset.y = 100
         
+        textField.resignFirstResponder()
         return true
     }
 }

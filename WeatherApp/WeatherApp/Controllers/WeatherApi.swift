@@ -35,6 +35,7 @@ NetworkHelper.shared.performDataTask(endpointURLString:WeatherUrl, httpMethod: "
         }
 }
     
+    
     // MARK: - Current Weather API
     
     static func currentWeather(lat:Double,long:Double, completionHandler: @escaping (AppError?,weather?) -> Void) {

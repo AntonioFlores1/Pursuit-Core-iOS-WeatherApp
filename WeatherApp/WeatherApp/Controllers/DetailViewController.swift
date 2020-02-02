@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDesc: UILabel!
     
-
+    
     var detailInfo: DataInfo?
     
     
@@ -35,4 +35,16 @@ Humidity: \(detailInfo!.humidity)
         
        }
 
+//    @IBAction func arSegue(_ sender: UIBarButtonItem) {
+//        if #available(iOS 13.0, *) {
+//            guard let arVC = storyboard?.instantiateViewController(identifier: "ARView") as? RealViewController else {
+//                return
+//            }
+//            present(arVC, animated: true, completion: nil)
+//
+//        } else {
+//            // Fallback on earlier versions
+//
+//        }
+//    }
 }
