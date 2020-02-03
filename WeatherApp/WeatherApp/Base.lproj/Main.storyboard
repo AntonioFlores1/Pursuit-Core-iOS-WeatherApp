@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jk8-Af-wqk">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-18-mhh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coW-qK-fZU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1042.5"/>
@@ -204,6 +205,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="sun.haze" catalog="system" id="Uh0-A6-hfT"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="CollectionTableView" destination="Zc1-tU-fmO" id="vgR-FM-vU6"/>
@@ -219,7 +221,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="131.33433283358323"/>
+            <point key="canvasLocation" x="1076" y="131.33433283358323"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="j9K-ZD-2Dw">
+            <objects>
+                <viewController id="dcb-mH-v1H" customClass="FavoritesViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zTf-0j-V5H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yfI-zJ-2kA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sDe-SR-Kjv">
+                                    <size key="itemSize" width="137" height="129"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favorite" id="C3w-cN-1eO" customClass="FavoritesCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GxP-80-GnS">
+                                            <rect key="frame" x="0.0" y="0.0" width="137" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eqn-Ri-QkY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="129"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="eqn-Ri-QkY" secondAttribute="trailing" constant="0.10000000000000001" id="Aqf-LN-Axl"/>
+                                                <constraint firstItem="eqn-Ri-QkY" firstAttribute="top" secondItem="GxP-80-GnS" secondAttribute="top" constant="0.10000000000000001" id="OBs-tS-qoI"/>
+                                                <constraint firstItem="eqn-Ri-QkY" firstAttribute="leading" secondItem="GxP-80-GnS" secondAttribute="leading" constant="0.10000000000000001" id="u8r-SD-oFz"/>
+                                                <constraint firstAttribute="bottom" secondItem="eqn-Ri-QkY" secondAttribute="bottom" constant="0.10000000000000001" id="w2o-Tu-mwm"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="137" height="129"/>
+                                        <connections>
+                                            <outlet property="favoriteImage" destination="eqn-Ri-QkY" id="RUy-3H-Hn1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yfI-zJ-2kA" firstAttribute="top" secondItem="c8l-MN-A7l" secondAttribute="top" constant="0.10000000000000001" id="CRX-F4-63l"/>
+                            <constraint firstItem="c8l-MN-A7l" firstAttribute="bottom" secondItem="yfI-zJ-2kA" secondAttribute="bottom" constant="0.10000000000000001" id="Yje-bG-I3Y"/>
+                            <constraint firstItem="yfI-zJ-2kA" firstAttribute="leading" secondItem="c8l-MN-A7l" secondAttribute="leading" constant="0.10000000000000001" id="i56-Tq-kbE"/>
+                            <constraint firstItem="c8l-MN-A7l" firstAttribute="trailing" secondItem="yfI-zJ-2kA" secondAttribute="trailing" constant="0.10000000000000001" id="ulQ-xE-LPY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c8l-MN-A7l"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" id="nfU-Vj-k7y"/>
+                    <connections>
+                        <outlet property="favoriteCollectionView" destination="yfI-zJ-2kA" id="ln1-uh-07u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2MM-Ji-iAw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109.5999999999999" y="1074.5127436281859"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Kec-eg-mCW">
@@ -238,8 +302,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="67v-pr-Z3i">
                                 <rect key="frame" x="0.0" y="121" width="375" height="200"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-Y8-1ua">
-                                <rect key="frame" x="81" y="333" width="213" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-Y8-1ua">
+                                <rect key="frame" x="81" y="333.5" width="213" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -293,6 +357,7 @@
                         <viewLayoutGuide key="safeArea" id="qNf-hW-AwO"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="u0H-a5-bFm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailDesc" destination="Mb6-52-krt" id="PeK-Aq-ktV"/>
@@ -303,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKO-7I-HY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933.60000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1872.8" y="132.68365817091455"/>
         </scene>
         <!--Kit View Controller-->
         <scene sceneID="S40-BB-neO">
@@ -326,16 +391,37 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k6V-3G-cif"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Nmj-Wi-3vn"/>
                     <connections>
                         <outlet property="sceneView" destination="6oU-lS-fFn" id="H2h-vV-DKd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tad-OG-kf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2053.5999999999999" y="131.78410794602701"/>
+            <point key="canvasLocation" x="2992.8000000000002" y="131.78410794602701"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="dZK-Vv-gTB">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jk8-Af-wqk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KeU-cN-H7q">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TCR-1w-0Tb"/>
+                        <segue destination="dcb-mH-v1H" kind="relationship" relationship="viewControllers" id="TXX-ka-7id"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hef-CY-Vaj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-354" y="686"/>
         </scene>
     </scenes>
     <resources>
         <image name="clear-day" width="55" height="55"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="sun.haze" catalog="system" width="64" height="58"/>
     </resources>
 </document>
