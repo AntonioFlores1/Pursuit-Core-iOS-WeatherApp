@@ -23,11 +23,21 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
     ///Maps
        var arenaNode: SCNNode!
        var soldierNode: SCNNode!
-       var cloudNode: SKNode!
+       var cloudNode: SCNNode!
    
        override func viewDidLoad() {
                 super.viewDidLoad()
                 let scene = SCNScene()
+        
+        
+//        let cameraNode = SCNNode()
+//           cameraNode.camera = SCNCamera()
+//           cameraNode.position = SCNVector3(x: 0, y: 0, z: 30)
+//           scene.rootNode.addChildNode(cameraNode)
+        
+        
+        
+        
                 sceneView.scene = scene
                 sceneView.delegate = self
 //                scene.rootNode.scale = SCNVector3(0.001,0.001,0.001)
@@ -35,6 +45,15 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
 //                scene.position =
 //.eulerAngles = SCNVector3Make(-300, -300, -300)
             }
+  
+    func createTrail(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+        let scene = SCNScene(named: "GeometryFighter.scnassets/Scenes/Trail.scn")
+        let node:SCNNode = (scene?.rootNode.childNode(withName: "Trail", recursively: true)!)!
+        let particleSystem:SCNParticleSystem = (node.particleSystems?.first)!
+        particleSystem.particleColor = color
+        particleSystem.emitterShape = geometry
+        return particleSystem
+    }
             
             override func viewWillAppear(_ animated: Bool) {
                 super.viewWillAppear(animated)
@@ -74,15 +93,41 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
                     soldierNode.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y, trackingForArenaPosition.z)
                     soldierNode.scale = SCNVector3(1,1,1)
                     sceneView.scene.rootNode.addChildNode(soldierNode)
-                                        
-                    let particles = SKEmitterNode(fileNamed: "cloud.sks")
+  
+
+                       let ambientLightNode = SCNNode()
+                       ambientLightNode.light = SCNLight()
+                       ambientLightNode.light!.type = .ambient
+                       ambientLightNode.light!.color = UIColor.darkGray
+                      sceneView.scene.rootNode.addChildNode(ambientLightNode)
                     
-                    addChild(particles)
-                    cloudNode = cloudScene
-                    cloudNode.position = CGPoint(x: 0, y: 90)
+                       let particles = SCNParticleSystem.init()
                     
-                        
-                        CGPoint(trackingForArenaPosition.x, trackingForArenaPosition.y + 90, trackingForArenaPosition.z)
+                       particles.emittingDirection = SCNVector3.init(0, 1, 0)
+                       particles.birthRate = 4000
+//                    particles.orientationMode = .free
+                       particles.emissionDuration = 0.1
+                       particles.spreadingAngle = 1
+//                    particles.blendMode = SCNParticleBlendMode.additive
+                       particles.particleDiesOnCollision = false
+                       particles.particleLifeSpan = 3
+                       particles.particleVelocity = 10
+                       particles.particleSize = 1
+                       particles.particleColor = UIColor.white.withAlphaComponent(0.01)
+                    
+                       let box = SCNNode.init(geometry: SCNBox.init(width: 1, height: 1, length: 1, chamferRadius: 0))
+                       box.addParticleSystem(particles)
+                       box.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 0, z: 2, duration: 2)))
+                    box.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y + 40, trackingForArenaPosition.z)
+                    sceneView.scene.rootNode.addChildNode(box)
+//                    let particles = SKEmitterNode(fileNamed: "cloud.sks")
+//
+//                    addChild(particles)
+//                    cloudNode = cloudScene
+//                    cloudNode.position = CGPoint(x: 0, y: 90)
+//
+//
+//                        CGPoint(trackingForArenaPosition.x, trackingForArenaPosition.y + 90, trackingForArenaPosition.z)
 //                    print("we here")
 //                    arenaNode.position = SCNVector3Make(0,20,-20)
                     
