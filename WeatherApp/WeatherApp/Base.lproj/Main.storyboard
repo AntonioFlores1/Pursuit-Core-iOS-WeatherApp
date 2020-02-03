@@ -212,6 +212,7 @@
                         <outlet property="currentImage" destination="9pW-5f-5HR" id="Fdk-St-Nuj"/>
                         <outlet property="currentSummary" destination="SNB-yr-IDc" id="ZRd-JT-9jt"/>
                         <outlet property="currentView" destination="73I-xg-Msz" id="Evl-cm-u3V"/>
+                        <outlet property="mainLabel" destination="39X-ms-cWX" id="PmK-Vr-KBG"/>
                         <outlet property="scrollView" destination="sAe-18-mhh" id="mk8-4m-cry"/>
                         <outlet property="textField" destination="72K-ig-C55" id="tYe-Ac-Xbz"/>
                     </connections>
@@ -234,11 +235,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="chancetstorm" translatesAutoresizingMaskIntoConstraints="NO" id="67v-pr-Z3i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="67v-pr-Z3i">
                                 <rect key="frame" x="0.0" y="121" width="375" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="SR4-sN-XaG"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-Y8-1ua">
                                 <rect key="frame" x="81" y="333" width="213" height="21"/>
@@ -259,6 +257,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem id="EcA-xc-HFx">
+                                        <barButtonItem key="leftBarButtonItem" title="Save" id="mr2-h0-jZF">
+                                            <connections>
+                                                <action selector="save:" destination="X8z-RD-2EN" id="Mv3-W5-PrV"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="AR" id="VDR-of-LDQ">
                                             <connections>
                                                 <segue destination="fpg-Z9-V00" kind="show" id="Sqc-NC-dJA"/>
@@ -270,14 +273,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="67v-pr-Z3i" firstAttribute="top" secondItem="cNx-LC-vQu" secondAttribute="bottom" constant="22" id="7Bc-Bc-S2o"/>
-                            <constraint firstItem="67v-pr-Z3i" firstAttribute="leading" secondItem="qNf-hW-AwO" secondAttribute="leading" constant="0.10000000000000001" id="H3V-o0-dmA"/>
                             <constraint firstItem="cNx-LC-vQu" firstAttribute="leading" secondItem="qNf-hW-AwO" secondAttribute="leading" constant="0.10000000000000001" id="JjA-Be-ea0"/>
                             <constraint firstItem="Mb6-52-krt" firstAttribute="top" secondItem="2Qx-Y8-1ua" secondAttribute="bottom" constant="8" id="KID-tI-VCP"/>
                             <constraint firstItem="qNf-hW-AwO" firstAttribute="trailing" secondItem="2Qx-Y8-1ua" secondAttribute="trailing" constant="81" id="Lor-Ky-IUW"/>
+                            <constraint firstItem="67v-pr-Z3i" firstAttribute="width" secondItem="NMb-vr-qD6" secondAttribute="width" id="Whc-FQ-pCk"/>
+                            <constraint firstItem="67v-pr-Z3i" firstAttribute="centerX" secondItem="qNf-hW-AwO" secondAttribute="centerX" id="WiT-Un-t8F"/>
                             <constraint firstItem="VF6-Dn-Akb" firstAttribute="trailing" secondItem="qNf-hW-AwO" secondAttribute="trailing" constant="0.10000000000000001" id="YqM-BC-KBM"/>
                             <constraint firstItem="cNx-LC-vQu" firstAttribute="trailing" secondItem="qNf-hW-AwO" secondAttribute="trailing" constant="0.10000000000000001" id="a1c-A0-EtV"/>
-                            <constraint firstItem="67v-pr-Z3i" firstAttribute="trailing" secondItem="qNf-hW-AwO" secondAttribute="trailing" constant="0.10000000000000001" id="cBI-gG-jcZ"/>
+                            <constraint firstItem="67v-pr-Z3i" firstAttribute="height" secondItem="NMb-vr-qD6" secondAttribute="height" multiplier="0.309119" id="aIJ-AE-Iki"/>
+                            <constraint firstItem="67v-pr-Z3i" firstAttribute="centerY" secondItem="qNf-hW-AwO" secondAttribute="centerY" constant="-78" id="jdL-DK-Qkj"/>
                             <constraint firstItem="qNf-hW-AwO" firstAttribute="trailing" secondItem="Mb6-52-krt" secondAttribute="trailing" constant="81" id="jxh-kd-Sye"/>
                             <constraint firstItem="cNx-LC-vQu" firstAttribute="top" secondItem="VF6-Dn-Akb" secondAttribute="bottom" constant="22" id="nKt-lF-wrj"/>
                             <constraint firstItem="qNf-hW-AwO" firstAttribute="bottom" secondItem="Mb6-52-krt" secondAttribute="bottom" constant="101" id="rVq-9P-Akc"/>
@@ -332,6 +336,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chancetstorm" width="55" height="55"/>
+        <image name="clear-day" width="55" height="55"/>
     </resources>
 </document>

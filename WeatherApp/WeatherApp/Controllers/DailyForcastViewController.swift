@@ -22,9 +22,20 @@ class DailyForcastViewController: UIViewController {
     
     @IBOutlet weak var currentDetails: UILabel!
     
+    @IBOutlet weak var mainLabel: UILabel!
+    
     @IBOutlet weak var CollectionTableView: UICollectionView!
     
     @IBOutlet weak var currentView: UIView!
+    
+    
+    var location: String? {
+        didSet {
+            self.currentSummary.text = "Weather Forcast for \(location!)"
+            self.mainLabel.text = location!
+        }
+    }
+    
     
     //MARK: - didSet
     private var dailyWeather = [DataInfo](){
@@ -38,11 +49,15 @@ class DailyForcastViewController: UIViewController {
     private var currentWeather = [weather](){
         didSet {
             DispatchQueue.main.async {
-                self.currentImage.image = UIImage(named: (self.currentWeather.first?.currently.icon)!)
+                let cityName = self.currentWeather.first?.timezone.replacingOccurrences(of: "/", with: " ")
+                let array = cityName?.components(separatedBy: " ")
+                self.location = array![1].replacingOccurrences(of: "_", with: " ")
                 self.CurrentDes.text = self.currentWeather.first?.currently.summary
                 self.currentDetails.text = """
                 Current Temp: \(self.currentWeather.first!.currently.temperature) Humidity: \(self.currentWeather.first!.currently.humidity)
                 """
+                self.currentImage.image = UIImage(named: (self.currentWeather.first?.currently.icon)!)
+
             }
         }
     }
@@ -70,6 +85,7 @@ class DailyForcastViewController: UIViewController {
                     }
                     if let weather = weather{
                         self.currentWeather = [weather]
+                        dump(weather)
                     }
                 }
             case .failure(let zipCodeError):
@@ -103,6 +119,7 @@ class DailyForcastViewController: UIViewController {
         }
         
         detailVC.detailInfo = dailyWeather[indexpath.row]
+        detailVC.location = location
     }
 }
 
@@ -147,7 +164,7 @@ extension DailyForcastViewController:UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.scrollView.contentOffset.y = 400
+            self.scrollView.contentOffset.y = 500
         }, completion: nil)
     }
     

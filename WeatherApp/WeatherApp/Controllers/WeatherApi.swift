@@ -12,8 +12,8 @@ final class WeatherApiClient{
     
     // MARK: - Daily Weather API
 
-    static func dailyWeather(lat:Double,long:Double, completionHandler: @escaping (AppError?,[DataInfo]?) -> Void) {
-let WeatherUrl = "https://api.darksky.net/forecast/\(SecretKey.APIkey)/\(lat),\(long)"
+static func dailyWeather(lat:Double,long:Double, completionHandler: @escaping (AppError?,[DataInfo]?) -> Void) {
+let WeatherUrl = "https://api.darksky.net/forecast/\(SecretKeys.APIkey)/\(lat),\(long)"
 NetworkHelper.shared.performDataTask(endpointURLString:WeatherUrl, httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandler(appError,nil)
@@ -39,7 +39,7 @@ NetworkHelper.shared.performDataTask(endpointURLString:WeatherUrl, httpMethod: "
     // MARK: - Current Weather API
     
     static func currentWeather(lat:Double,long:Double, completionHandler: @escaping (AppError?,weather?) -> Void) {
-    let WeatherUrl = "https://api.darksky.net/forecast/\(SecretKey.APIkey)/\(lat),\(long)"
+    let WeatherUrl = "https://api.darksky.net/forecast/\(SecretKeys.APIkey)/\(lat),\(long)"
     NetworkHelper.shared.performDataTask(endpointURLString:WeatherUrl, httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
                 if let appError = appError {
                     completionHandler(appError,nil)
