@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coW-qK-fZU">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1041"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1028.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-xg-Msz">
                                                 <rect key="frame" x="45" y="70" width="285" height="256"/>
@@ -73,7 +73,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zc1-tU-fmO">
-                                                <rect key="frame" x="0.0" y="466.5" width="375" height="380"/>
+                                                <rect key="frame" x="0.0" y="466.5" width="375" height="375.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ajf-s2-xWv">
                                                     <size key="itemSize" width="296" height="294"/>
@@ -83,7 +83,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherInfo" id="beQ-by-pY8" customClass="DailyCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="43" width="296" height="294"/>
+                                                        <rect key="frame" x="0.0" y="41" width="296" height="294"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="296" height="294"/>
@@ -146,9 +146,10 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10021" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72K-ig-C55">
-                                                <rect key="frame" x="143" y="897.5" width="89" height="36"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10021" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72K-ig-C55">
+                                                <rect key="frame" x="143" y="893" width="89" height="28"/>
+                                                <color key="backgroundColor" red="1" green="0.7843137255" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -159,13 +160,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a zip Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5r-hW-Lad">
-                                                <rect key="frame" x="120" y="978.5" width="135" height="20.5"/>
+                                                <rect key="frame" x="120" y="966" width="135" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="1" green="0.78431372549019607" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="39X-ms-cWX" firstAttribute="top" secondItem="coW-qK-fZU" secondAttribute="top" constant="11" id="81D-T4-l4H"/>
                                             <constraint firstItem="72K-ig-C55" firstAttribute="top" secondItem="Zc1-tU-fmO" secondAttribute="bottom" constant="51" id="8X5-jg-nMl"/>
@@ -306,7 +307,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="67v-pr-Z3i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="67v-pr-Z3i">
                                 <rect key="frame" x="0.0" y="121" width="375" height="200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-Y8-1ua">
@@ -428,7 +429,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clear-day" width="55" height="55"/>
+        <image name="city" width="2560" height="1440"/>
         <image name="heart" catalog="system" width="64" height="54"/>
         <image name="newYorkCity" width="336" height="250"/>
         <image name="sun.haze" catalog="system" width="64" height="58"/>

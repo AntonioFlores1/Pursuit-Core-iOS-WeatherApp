@@ -189,6 +189,7 @@ extension DailyForcastViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let collectionViewcell = CollectionTableView.dequeueReusableCell(withReuseIdentifier: "WeatherInfo", for: indexPath) as? DailyCollectionViewCell else {return UICollectionViewCell()}
         let cellInfo = dailyWeather[indexPath.row]
+        collectionViewcell.layer.cornerRadius = 28
         collectionViewcell.forcastImage.image = UIImage(named: cellInfo.icon)
         collectionViewcell.DateLabel.text = "\(Int(cellInfo.temperatureHigh))°"
         collectionViewcell.forcastLabel.text = cellInfo.summary
