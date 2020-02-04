@@ -12,11 +12,14 @@ class DailyForcastViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
+    @IBOutlet weak var backGroundView: UIView!
+    
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var currentSummary: UILabel!
     
-    @IBOutlet weak var currentImage: UIImageView!
+    @IBOutlet weak var cityImage: UIImageView!
     
     @IBOutlet weak var CurrentDes: UILabel!
     
@@ -31,7 +34,7 @@ class DailyForcastViewController: UIViewController {
     
     var location: String? {
         didSet {
-            self.currentSummary.text = "Weather Forcast for \(location!)"
+            self.currentSummary.text = "\(location!)"
             self.mainLabel.text = location!
         }
     }
@@ -49,24 +52,67 @@ class DailyForcastViewController: UIViewController {
     private var currentWeather = [weather](){
         didSet {
             DispatchQueue.main.async {
+               
+                
                 let cityName = self.currentWeather.first?.timezone.replacingOccurrences(of: "/", with: " ")
                 let array = cityName?.components(separatedBy: " ")
                 self.location = array![1].replacingOccurrences(of: "_", with: " ")
+                                        
+                               if self.location == "New York" {
+                                   self.cityImage.image = UIImage(named: "newYorkCity")
+                               } else if self.location == "Los Angeles"{
+                                   self.cityImage.image = UIImage(named: "los angeles")
+                                   
+                               } else {
+                                   self.cityImage.image = UIImage(named: "default city")
+                               }
+                
                 self.CurrentDes.text = self.currentWeather.first?.currently.summary
-                self.currentDetails.text = """
-                Current Temp: \(self.currentWeather.first!.currently.temperature) Humidity: \(self.currentWeather.first!.currently.humidity)
-                """
-                self.currentImage.image = UIImage(named: (self.currentWeather.first?.currently.icon)!)
-
+                self.currentDetails.text = "   \(Int(self.currentWeather.first!.currently.temperature))°"
+                
+                
             }
         }
     }
     
     
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentView.layer.cornerRadius = 20
+//      backGroundView.backgroundColor = .red
+
+//        let gradient = CAGradientLayer()
+//        let darkBlue = UIColor(displayP3Red: 23, green: 39, blue: 54, alpha: 1)
+//        let lightBlue = UIColor(displayP3Red: 34, green: 56, blue: 77, alpha: 1)
+//        gradient.colors = [UIColor.red,UIColor.green]
+//        gradient.frame = backGroundView.bounds
+//        gradient.frame = view.bounds
+////        gradient.startPoint = CGPoint(x:0.0, y:0.5)
+////        gradient.endPoint = CGPoint(x:1.0,y:0.5)
+////        backGroundView.layer.addSublayer(gradient)
+//        backGroundView.layer.insertSublayer(gradient, at: 0)
+//        view.layer.addSublayer(gradient)
+        setGradientColour()
+    }
+    
+    
+    func setGradientColour() {
+//        let colorTop = UIColor(red: 14/255.0, green: 21/255.0, blue: 27/255.0, alpha: 1.0)
+//        let colorBottom = UIColor(red: 34/255.0, green: 56/255.0, blue: 77/255.0, alpha: 1.0)
+////        let gradientLayer = CAGradientLayer()
+////        gradientLayer.colors = [colorTop, colorBottom]
+//////        gradientLayer.startPoint = CGPoint(x:0.0, y:0.5)
+//////        gradientLayer.endPoint = CGPoint(x:1.0,y:0.5)
+////        gradientLayer.frame = scrollView.frame
+////        scrollView.layer.addSublayer(gradientLayer)
+//        
+//        backGroundView.backgroundColor = colorTop
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+      currentView.layer.cornerRadius = 20
         textField.delegate = self
         CollectionTableView.dataSource = self
         CollectionTableView.delegate = self
@@ -144,7 +190,7 @@ extension DailyForcastViewController:UICollectionViewDataSource {
         guard let collectionViewcell = CollectionTableView.dequeueReusableCell(withReuseIdentifier: "WeatherInfo", for: indexPath) as? DailyCollectionViewCell else {return UICollectionViewCell()}
         let cellInfo = dailyWeather[indexPath.row]
         collectionViewcell.forcastImage.image = UIImage(named: cellInfo.icon)
-        collectionViewcell.DateLabel.text = "Today"
+        collectionViewcell.DateLabel.text = "\(Int(cellInfo.temperatureHigh))°"
         collectionViewcell.forcastLabel.text = cellInfo.summary
         collectionViewcell.detailLabel.text = """
 High: \(cellInfo.temperatureHigh) Low: \(cellInfo.temperatureLow)

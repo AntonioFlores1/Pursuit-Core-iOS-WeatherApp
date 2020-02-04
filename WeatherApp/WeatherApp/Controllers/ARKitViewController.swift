@@ -14,6 +14,7 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
     
     @IBOutlet weak var sceneView: ARSCNView!
     
+    var weather: String?
     
         var trackerNode: SCNNode!
         var Gamestarted = false
@@ -27,6 +28,7 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
    
        override func viewDidLoad() {
                 super.viewDidLoad()
+        
                 let scene = SCNScene()
         
         
@@ -86,6 +88,8 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
 //                    arenaNode.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y, trackingForArenaPosition.z)
 //                    let arenaRotate = SCNAction.rotateBy(x: 0, y: 0, z: 0, duration: 0)
                     
+                    if weather == "partly-cloudy-day" {
+                    
                     let soldierScene = SCNScene(named: "Miami 2525.scn")!
 
                     
@@ -94,32 +98,47 @@ class ARKitViewController: UIViewController,ARSCNViewDelegate,ARSessionDelegate 
                     soldierNode.scale = SCNVector3(1,1,1)
                     sceneView.scene.rootNode.addChildNode(soldierNode)
   
+//
+//                       let ambientLightNode = SCNNode()
+//                       ambientLightNode.light = SCNLight()
+//                       ambientLightNode.light!.type = .ambient
+//                       ambientLightNode.light!.color = UIColor.darkGray
+//                      sceneView.scene.rootNode.addChildNode(ambientLightNode)
+//
+//                       let particles = SCNParticleSystem.init()
+//
+//                       particles.emittingDirection = SCNVector3.init(0, 1, 0)
+//                       particles.birthRate = 4000
+////                    particles.orientationMode = .free
+//                       particles.emissionDuration = 0.1
+//                       particles.spreadingAngle = 1
+////                    particles.blendMode = SCNParticleBlendMode.additive
+//                       particles.particleDiesOnCollision = false
+//                       particles.particleLifeSpan = 3
+//                       particles.particleVelocity = 10
+//                       particles.particleSize = 1
+//                       particles.particleColor = UIColor.white.withAlphaComponent(0.01)
+//
+//                       let box = SCNNode.init(geometry: SCNBox.init(width: 1, height: 1, length: 1, chamferRadius: 0))
+//                       box.addParticleSystem(particles)
+//                       box.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 0, z: 2, duration: 2)))
+//                    box.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y + 40, trackingForArenaPosition.z)
+//                    sceneView.scene.rootNode.addChildNode(box)
+                        
+                        
+                        } else if weather == "clear-day" {
+                        
+                        let soldierScene = SCNScene(named: "Miami2.scn")!
 
-                       let ambientLightNode = SCNNode()
-                       ambientLightNode.light = SCNLight()
-                       ambientLightNode.light!.type = .ambient
-                       ambientLightNode.light!.color = UIColor.darkGray
-                      sceneView.scene.rootNode.addChildNode(ambientLightNode)
-                    
-                       let particles = SCNParticleSystem.init()
-                    
-                       particles.emittingDirection = SCNVector3.init(0, 1, 0)
-                       particles.birthRate = 4000
-//                    particles.orientationMode = .free
-                       particles.emissionDuration = 0.1
-                       particles.spreadingAngle = 1
-//                    particles.blendMode = SCNParticleBlendMode.additive
-                       particles.particleDiesOnCollision = false
-                       particles.particleLifeSpan = 3
-                       particles.particleVelocity = 10
-                       particles.particleSize = 1
-                       particles.particleColor = UIColor.white.withAlphaComponent(0.01)
-                    
-                       let box = SCNNode.init(geometry: SCNBox.init(width: 1, height: 1, length: 1, chamferRadius: 0))
-                       box.addParticleSystem(particles)
-                       box.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 0, z: 2, duration: 2)))
-                    box.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y + 40, trackingForArenaPosition.z)
-                    sceneView.scene.rootNode.addChildNode(box)
+                                           
+                                           soldierNode = soldierScene.rootNode
+                                           soldierNode.position = SCNVector3Make(trackingForArenaPosition.x, trackingForArenaPosition.y, trackingForArenaPosition.z)
+                                           soldierNode.scale = SCNVector3(1,1,1)
+                                           sceneView.scene.rootNode.addChildNode(soldierNode)
+                        
+                        
+                        
+                    }
 //                    let particles = SKEmitterNode(fileNamed: "cloud.sks")
 //
 //                    addChild(particles)

@@ -22,7 +22,6 @@
 		57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE009F21F15E0F00D76A6E /* ZipCodeHelper.swift */; };
 		57EE00A821F15F4E00D76A6E /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE00A721F15F4E00D76A6E /* WeatherAppTests.swift */; };
 		A912828B23E610EA000E83DA /* Miami 2525.scn in Resources */ = {isa = PBXBuildFile; fileRef = A912828A23E610EA000E83DA /* Miami 2525.scn */; };
-		A91282A023E63B35000E83DA /* cloud.sks in Resources */ = {isa = PBXBuildFile; fileRef = A912829E23E63B35000E83DA /* cloud.sks */; };
 		A91282A123E63B35000E83DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A912829F23E63B35000E83DA /* Assets.xcassets */; };
 		A9366C6F23E51C0F001B0D1D /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = A9366C6E23E51C0E001B0D1D /* Maps */; };
 		A9366C7623E51C1A001B0D1D /* m5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9366C7023E51C19001B0D1D /* m5.jpg */; };
@@ -41,6 +40,8 @@
 		A956FD2C23E882EC00E6B656 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956FD2B23E882EC00E6B656 /* Favorites.swift */; };
 		A956FD2F23E8834700E6B656 /* DataPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956FD2E23E8834700E6B656 /* DataPersistance.swift */; };
 		A956FD3123E8838B00E6B656 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956FD3023E8838B00E6B656 /* FavoritesModel.swift */; };
+		A956FD3323E894F600E6B656 /* Miami2.scn in Resources */ = {isa = PBXBuildFile; fileRef = A956FD3223E894F600E6B656 /* Miami2.scn */; };
+		A956FD3523E8962400E6B656 /* sunny.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A956FD3423E8962400E6B656 /* sunny.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,6 @@
 		57EE00A721F15F4E00D76A6E /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		57EE00A921F15F4E00D76A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A912828A23E610EA000E83DA /* Miami 2525.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "Miami 2525.scn"; path = "../../../../Downloads/Miami_2525/Miami 2525/Miami 2525.scn"; sourceTree = "<group>"; };
-		A912829E23E63B35000E83DA /* cloud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = cloud.sks; sourceTree = "<group>"; };
 		A912829F23E63B35000E83DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9366C6E23E51C0E001B0D1D /* Maps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Maps; sourceTree = "<group>"; };
 		A9366C7023E51C19001B0D1D /* m5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = m5.jpg; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		A956FD2B23E882EC00E6B656 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		A956FD2E23E8834700E6B656 /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
 		A956FD3023E8838B00E6B656 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
+		A956FD3223E894F600E6B656 /* Miami2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Miami2.scn; path = "../../../../Downloads/Miami_2525/Miami 2525/Miami2.scn"; sourceTree = "<group>"; };
+		A956FD3423E8962400E6B656 /* sunny.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunny.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		A9366C6923E51ACB001B0D1D /* AR Stuff */ = {
 			isa = PBXGroup;
 			children = (
+				A956FD3423E8962400E6B656 /* sunny.jpeg */,
 				A9366C7423E51C19001B0D1D /* m1.jpg */,
 				A9366C7223E51C19001B0D1D /* m2.jpg */,
 				A9366C7323E51C19001B0D1D /* m3.jpg */,
@@ -223,7 +226,7 @@
 				A9366C7123E51C19001B0D1D /* m6.jpg */,
 				A9366C6E23E51C0E001B0D1D /* Maps */,
 				A912828A23E610EA000E83DA /* Miami 2525.scn */,
-				A912829E23E63B35000E83DA /* cloud.sks */,
+				A956FD3223E894F600E6B656 /* Miami2.scn */,
 				A912829F23E63B35000E83DA /* Assets.xcassets */,
 			);
 			name = "AR Stuff";
@@ -335,12 +338,13 @@
 				A9366C7723E51C1A001B0D1D /* m6.jpg in Resources */,
 				57EE009821F15D7100D76A6E /* LaunchScreen.storyboard in Resources */,
 				A9366C6F23E51C0F001B0D1D /* Maps in Resources */,
-				A91282A023E63B35000E83DA /* cloud.sks in Resources */,
 				57EE009521F15D7100D76A6E /* Assets.xcassets in Resources */,
 				A9366C7823E51C1A001B0D1D /* m2.jpg in Resources */,
 				A91282A123E63B35000E83DA /* Assets.xcassets in Resources */,
+				A956FD3323E894F600E6B656 /* Miami2.scn in Resources */,
 				A9366C7A23E51C1A001B0D1D /* m1.jpg in Resources */,
 				57EE009321F15D7100D76A6E /* Main.storyboard in Resources */,
+				A956FD3523E8962400E6B656 /* sunny.jpeg in Resources */,
 				A9366C7B23E51C1A001B0D1D /* m4.jpg in Resources */,
 				A9366C7923E51C1A001B0D1D /* m3.jpg in Resources */,
 				A9366C7623E51C1A001B0D1D /* m5.jpg in Resources */,

@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     
     var location: String?
     
+    var weather: String? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,32 +44,36 @@ class DetailViewController: UIViewController {
     
     
     func pixelBayAPI(){
-        PixabayAPIClient.getImageURLString(ofLocation: location!) { (error, image) in
-            if let error = error {
-                print(error)
-            }
-            
-            print(self.location)
-            if let largImage = image{
-                print(largImage)
+
+            PixabayAPIClient.getImageURLString(ofLocation: location!) { (error, image) in
+                if let error = error {
+                    print(error)
+                }
                 
-                DispatchQueue.main.async {
+                print(self.location)
+                if let largImage = image{
+                    print(largImage)
                     
-                    self.detailImage.getImage(with: largImage) { (result) in
-                        switch result {
-                        case .failure(let error):
-                            print("Image error \(error)")
-                            
-                        case .success(let image):
-                            DispatchQueue.main.async {
-                                self.detailImage.image = image
+                    DispatchQueue.main.async {
+                        
+                        self.detailImage.getImage(with: largImage) { (result) in
+                            switch result {
+                            case .failure(let error):
+                                print("Image error \(error)")
+                                DispatchQueue.main.async {
+                                self.detailImage.image = UIImage.init(named: "city")
+                                }
+                            case .success(let image):
+                                DispatchQueue.main.async {
+                                    self.detailImage.image = image
+                                }
                             }
                         }
                     }
                 }
             }
         }
-    }
+    
     
     
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -103,5 +108,17 @@ class DetailViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func arButton(_ sender: UIBarButtonItem) {
+        
+        guard let arView = storyboard?.instantiateViewController(identifier: "ARView") as? ARKitViewController else {
+            return
+        }
+        print("jfojdnfjdsnjsdnjd HERE")
+        print(detailInfo?.icon)
+        arView.weather = detailInfo?.icon
+        
+        present(arView, animated: true, completion: nil)
+        
+    }
     
 }

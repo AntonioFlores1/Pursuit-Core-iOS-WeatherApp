@@ -32,7 +32,13 @@ final class PixabayAPIClient {
             if let data = data {
                 do {
                     let imageData = try JSONDecoder().decode(pixelBay.self, from: data)
-                    completionHandler(nil, imageData.hits[Int.random(in:0...imageData.hits.count-1)].largeImageURL)
+                    if imageData.hits.isEmpty {
+                        completionHandler(nil, "nil")
+                    } else {
+                        completionHandler(nil, imageData.hits[Int.random(in:0...imageData.hits.count-1)].largeImageURL)
+                    }
+                    
+                    
                 } catch {
                     completionHandler(AppError.decodingError(error), nil)
                 }
